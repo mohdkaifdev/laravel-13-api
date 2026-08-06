@@ -1,0 +1,63 @@
+Client (Postman/Frontend)
+        │
+        ▼
+      Routes
+        │
+        ▼
+    Middleware
+        │
+        ▼
+    Controller
+        │
+        ▼
+ Form Request Validation
+        │
+        ▼
+      Service
+        │
+        ▼
+    Repository
+        │
+        ▼
+ Dependency Injection
+        │
+        ▼
+       Model
+        │
+        ▼
+      MySQL
+        │
+        ▼
+   API Resource
+        │
+        ▼
+ ApiResponse Trait
+        │
+        ▼
+   JSON Response
+
+   Authentication → Sanctum
+
+Caching → Redis
+
+Queue → Redis Queue
+
+Jobs → SendWelcomeEmailJob
+
+Mail → WelcomeMail
+
+Documentation → Swagger
+
+Providers → Dependency Binding
+
+Traits → Standard Response
+
+Services → Business Logic
+
+Repository → Database Logic
+
+Storage → File Upload
+
+Testing → PHPUnit
+
+Deployment → Docker
