@@ -79,5 +79,11 @@ jobs:
       - name: Run Database Migrations
         run: php artisan migrate --force
 
+      - name: Check Code Style (Laravel Pint)
+        run: vendor/bin/pint --test
+
+      - name: Run Static Analysis (PHPStan + Larastan)
+        run: vendor/bin/phpstan analyse --memory-limit=1G
+
       - name: Run Feature Tests
         run: php artisan test

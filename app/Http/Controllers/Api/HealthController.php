@@ -13,7 +13,7 @@ class HealthController extends Controller
             'status' => true,
             'message' => 'API is working',
             'laravel_version' => app()->version(),
-            'redis' => Cache::get('test_key') ? 'connected' : 'failed'
+            'redis' => Cache::get('test_key') ? 'connected' : 'failed',
         ]);
     }
 }

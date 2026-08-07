@@ -16,6 +16,6 @@ class WelcomeMail extends Mailable
     public function build()
     {
         return $this->subject('Welcome to Laravel API')
-                    ->view('emails.welcome');
+            ->view('emails.welcome');
     }
 }

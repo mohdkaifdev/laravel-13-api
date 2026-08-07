@@ -16,6 +16,4 @@ use OpenApi\Annotations as OA;
  *     description="Local Server"
  * )
  */
-class SwaggerController extends Controller
-{
-}
+class SwaggerController extends Controller {}

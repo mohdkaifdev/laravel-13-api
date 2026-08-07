@@ -29,9 +29,9 @@ class ProductService
     {
         return DB::transaction(function () use ($data) {
 
-            if(isset($data['image'])){
+            if (isset($data['image'])) {
 
-                $data['image']=$data['image']->store(
+                $data['image'] = $data['image']->store(
                     'products',
                     'public'
                 );
@@ -43,19 +43,19 @@ class ProductService
         });
     }
 
-    public function updateProduct($product,array $data)
+    public function updateProduct($product, array $data)
     {
-        return DB::transaction(function() use($product,$data){
+        return DB::transaction(function () use ($product, $data) {
 
-            if(isset($data['image'])){
+            if (isset($data['image'])) {
 
-                if($product->image){
+                if ($product->image) {
 
                     Storage::disk('public')->delete($product->image);
 
                 }
 
-                $data['image']=$data['image']->store(
+                $data['image'] = $data['image']->store(
                     'products',
                     'public'
                 );
@@ -72,9 +72,9 @@ class ProductService
 
     public function deleteProduct($product)
     {
-        return DB::transaction(function() use($product){
+        return DB::transaction(function () use ($product) {
 
-            if($product->image){
+            if ($product->image) {
 
                 Storage::disk('public')->delete($product->image);
 

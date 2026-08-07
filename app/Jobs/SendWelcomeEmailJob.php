@@ -2,11 +2,10 @@
 
 namespace App\Jobs;
 
+use App\Mail\WelcomeMail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\WelcomeMail;
 
 class SendWelcomeEmailJob implements ShouldQueue
 {
@@ -15,9 +14,7 @@ class SendWelcomeEmailJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
-
-     public array $user;
-
+    public array $user;
 
     public function __construct(array $user)
     {

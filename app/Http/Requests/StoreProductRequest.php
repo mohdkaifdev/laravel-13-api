@@ -20,7 +20,7 @@ class StoreProductRequest extends FormRequest
      *
      * @return array<string, ValidationRule|array<mixed>|string>
      */
-   public function rules(): array
+    public function rules(): array
     {
         return [
 
@@ -30,7 +30,7 @@ class StoreProductRequest extends FormRequest
 
             'price' => 'required|numeric|min:1',
 
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
 
         ];
     }
@@ -45,7 +45,7 @@ class StoreProductRequest extends FormRequest
 
             'price.numeric' => 'Price must be numeric.',
 
-            'price.min' => 'Price must be greater than zero.'
+            'price.min' => 'Price must be greater than zero.',
 
         ];
     }

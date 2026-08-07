@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Http\Resources\ProductResource;
+use App\Models\Product;
 use App\Services\ProductService;
 
 class ProductController extends Controller
@@ -29,9 +28,9 @@ class ProductController extends Controller
 
         return $this->success([
             ProductResource::collection($products),
-            'Products fetched successfully.'
+            'Products fetched successfully.',
         ]);
-       
+
     }
 
     /**
@@ -39,9 +38,9 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-       $product = $this->productService->createProduct($request->validated());
+        $product = $this->productService->createProduct($request->validated());
 
-         return $this->success(
+        return $this->success(
             new ProductResource($product),
             'Product created successfully.',
             201
@@ -66,18 +65,18 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-     public function updateProduct(UpdateProductRequest $request, Product $product)
-        {
+    public function updateProduct(UpdateProductRequest $request, Product $product)
+    {
         $product = $this->productService->updateProduct(
-                $product,
-                $request->validated()
-            );
+            $product,
+            $request->validated()
+        );
 
         return $this->success(
-                new ProductResource($product->fresh()),
-                'Product updated successfully.'
-            );
-        }
+            new ProductResource($product->fresh()),
+            'Product updated successfully.'
+        );
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -86,9 +85,9 @@ class ProductController extends Controller
     {
         $this->productService->deleteProduct($product);
 
-    return $this->success(
-        null,
-        'Product deleted successfully.'
-    );
+        return $this->success(
+            null,
+            'Product deleted successfully.'
+        );
     }
 }

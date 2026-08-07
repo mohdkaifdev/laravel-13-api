@@ -2,11 +2,11 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use App\Models\User;
 use App\Models\Product;
-use Laravel\Sanctum\Sanctum;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Laravel\Sanctum\Sanctum;
+use Tests\TestCase;
 
 class ProductTest extends TestCase
 {
@@ -56,7 +56,7 @@ class ProductTest extends TestCase
         $response->assertStatus(201);
 
         $this->assertDatabaseHas('products', [
-            'name' => 'iPhone 16'
+            'name' => 'iPhone 16',
         ]);
     }
 
@@ -86,13 +86,13 @@ class ProductTest extends TestCase
         $response = $this->putJson("/api/v1/products/{$product->id}", [
             'name' => 'Updated Product',
             'description' => 'Updated Description',
-            'price' => 9999
+            'price' => 9999,
         ]);
 
         $response->assertStatus(200);
 
         $this->assertDatabaseHas('products', [
-            'name' => 'Updated Product'
+            'name' => 'Updated Product',
         ]);
     }
 
@@ -110,7 +110,7 @@ class ProductTest extends TestCase
         $response->assertStatus(200);
 
         $this->assertDatabaseMissing('products', [
-            'id' => $product->id
+            'id' => $product->id,
         ]);
     }
 
@@ -123,14 +123,14 @@ class ProductTest extends TestCase
 
         $response = $this->postJson('/api/v1/products', [
             'name' => '',
-            'price' => ''
+            'price' => '',
         ]);
 
         $response->assertStatus(422);
 
         $response->assertJsonValidationErrors([
             'name',
-            'price'
+            'price',
         ]);
     }
 

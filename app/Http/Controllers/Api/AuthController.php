@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendWelcomeEmailJob;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Jobs\SendWelcomeEmailJob;
 
 class AuthController extends Controller
 {
@@ -32,9 +32,9 @@ class AuthController extends Controller
         $token = $user->createToken('api-token')->plainTextToken;
 
         return $this->success([
-                'token'=>$token,
-                'user'=>$user
-            ],
+            'token' => $token,
+            'user' => $user,
+        ],
             'Registration successful.',
             201
         );
@@ -73,7 +73,7 @@ class AuthController extends Controller
     {
         $request->user()->currentAccessToken()->delete();
 
-       return $this->success(
+        return $this->success(
             null,
             'Logout successful.'
         );
