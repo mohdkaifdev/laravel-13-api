@@ -22,6 +22,10 @@ RUN docker-php-ext-install \
 RUN pecl install redis \
     && docker-php-ext-enable redis
 
+# PCOV - Code Coverage
+RUN pecl install pcov \
+    && docker-php-ext-enable pcov
+
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
